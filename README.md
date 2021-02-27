@@ -16,3 +16,5 @@ The program should apply these rules to each cell in order to compute the next g
 
 At this stage, you should make several consecutive generations. For this, you have to store the state of the universe in memory.
 
+## Stage 3
+Let’s visualize evolution. In the previous stage, we could see only one generation. It would be better if each generation was displayed. But our perception is not as fast as computer’s, so our application should sleep a little after each generation.

@@ -13,10 +13,10 @@ public class GameOfLife {
     private final List<GameView> views;
     private final boolean[][] field;
 
-    public GameOfLife(int n, int seed) {
+    public GameOfLife(int n) {
         views = new ArrayList<>();
         field = new boolean[n][n];
-        var rand = new Random(seed);
+        var rand = new Random();
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length; j++) {
                 field[i][j] = rand.nextBoolean();
@@ -30,7 +30,17 @@ public class GameOfLife {
     }
 
     public void updateView() {
-        views.forEach(view -> view.update(gen, field));
+        views.forEach(view -> view.update(gen, getAliveCount(), field));
+    }
+
+    private int getAliveCount() {
+        var aliveCount = 0;
+        for (boolean[] row : field) {
+            for (boolean cell : row) {
+                aliveCount = cell ? aliveCount + 1 : aliveCount;
+            }
+        }
+        return aliveCount;
     }
 
     public void jumpToGeneration(int m) {

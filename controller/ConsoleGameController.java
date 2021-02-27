@@ -16,8 +16,7 @@ public class ConsoleGameController extends GameController {
     public GameOfLife initNewModel() {
         try {
             var n = scan.nextInt();
-            var seed = scan.nextInt();
-            model = new GameOfLife(n, seed);
+            model = new GameOfLife(n);
             return model;
         } catch (InputMismatchException e) {
             System.out.println("Wrong input, try again");
