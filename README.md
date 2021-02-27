@@ -5,3 +5,14 @@ The first program should output a square matrix NxN: there must be N lines with 
 
 Input data is two numbers in one line. First is N (N>0): the size of the universe. The second is S: a number that you should use as the seed for your Random object.
 
+## Stage 2
+Evolution is controlled by two rules:
+
+A live cell survives if it has two or three live neighbors; otherwise, it dies of boredom (<2) or overpopulation (>3).
+
+A dead cell is reborn if it has exactly three live neighbors.
+
+The program should apply these rules to each cell in order to compute the next generation.
+
+At this stage, you should make several consecutive generations. For this, you have to store the state of the universe in memory.
+
