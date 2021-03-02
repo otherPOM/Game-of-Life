@@ -1,6 +1,6 @@
 package life.controller;
 
-import life.model.GameOfLife;
+import life.model.GameModel;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -13,10 +13,10 @@ public class ConsoleGameController extends GameController {
     }
 
     @Override
-    public GameOfLife initNewModel() {
+    public GameModel initNewModel() {
         try {
             var n = scan.nextInt();
-            model = new GameOfLife(n);
+            model = new GameModel(n);
             return model;
         } catch (InputMismatchException e) {
             System.out.println("Wrong input, try again");

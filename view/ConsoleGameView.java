@@ -1,11 +1,13 @@
 package life.view;
 
+import life.model.GameModel;
+
 import java.io.IOException;
 
-public class ConsoleGameView extends GameView {
+public class ConsoleGameView implements GameView {
 
     @Override
-    public void update(int gen, int aliveCount, boolean[][] field) {
+    public void update(GameModel model) {
         try {
             if (System.getProperty("os.name").contains("Windows"))
                 new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
@@ -14,9 +16,9 @@ public class ConsoleGameView extends GameView {
         }
         catch (IOException | InterruptedException ignored) {}
 
-        System.out.println("Generation #" + gen);
-        System.out.println("Alive: " + aliveCount);
-            for (boolean[] booleans : field) {
+        System.out.println("Generation #" + model.getGen());
+        System.out.println("Alive: " + model.getAliveCount());
+            for (boolean[] booleans : model.getField()) {
                 for (boolean aBoolean : booleans) {
                     System.out.print(aBoolean ? 'O' : ' ');
                 }

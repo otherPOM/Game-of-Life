@@ -18,3 +18,10 @@ At this stage, you should make several consecutive generations. For this, you ha
 
 ## Stage 3
 Let’s visualize evolution. In the previous stage, we could see only one generation. It would be better if each generation was displayed. But our perception is not as fast as computer’s, so our application should sleep a little after each generation.
+
+## Stage 4
+Now you are ready to put aside the console and make your GUI.
+
+For the testing reasons You should create a class named GameOfLife.
+This will be a class that represents a GUI.
+You need to set the name of each component using the method `component.setName(String name)`.

@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.IntStream;
 
-public class GameOfLife {
+public class GameModel {
     private int gen;
 
     private final List<GameView> views;
     private final boolean[][] field;
 
-    public GameOfLife(int n) {
+    public GameModel(int n) {
         views = new ArrayList<>();
         field = new boolean[n][n];
         var rand = new Random();
@@ -27,13 +27,14 @@ public class GameOfLife {
 
     public void addView(GameView view) {
         views.add(view);
+        updateView();
     }
 
     public void updateView() {
-        views.forEach(view -> view.update(gen, getAliveCount(), field));
+        views.forEach(view -> view.update(this));
     }
 
-    private int getAliveCount() {
+    public int getAliveCount() {
         var aliveCount = 0;
         for (boolean[] row : field) {
             for (boolean cell : row) {
@@ -41,6 +42,14 @@ public class GameOfLife {
             }
         }
         return aliveCount;
+    }
+
+    public int getGen() {
+        return gen;
+    }
+
+    public boolean[][] getField() {
+        return field;
     }
 
     public void jumpToGeneration(int m) {

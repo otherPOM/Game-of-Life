@@ -1,5 +1,7 @@
 package life.view;
 
-public abstract class GameView {
-    public abstract void update(int gen, int aliveCount, boolean[][] field);
+import life.model.GameModel;
+
+public interface GameView {
+    void update(GameModel model);
 }

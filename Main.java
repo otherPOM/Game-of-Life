@@ -1,18 +1,18 @@
 package life;
 
-import life.controller.ConsoleGameController;
-import life.view.ConsoleGameView;
+import life.model.GameModel;
+import life.view.GameOfLife;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
-        var consoleController = new ConsoleGameController();
-        var model = consoleController.initNewModel();
-        model.addView(new ConsoleGameView());
+    public static void main(String[] args) throws Exception {
+        var model = new GameModel(30);
+        model.addView(new GameOfLife());
+        Thread.sleep(1000);
 
         var i = 15;
         while (i-- > 0) {
-            consoleController.nextGeneration();
-            Thread.sleep(1);
+            model.nextGeneration();
+            Thread.sleep(100);
         }
     }
 }

@@ -1,11 +1,11 @@
 package life.controller;
 
-import life.model.GameOfLife;
+import life.model.GameModel;
 
 public abstract class GameController {
-    protected GameOfLife model;
+    protected GameModel model;
 
-    public abstract GameOfLife initNewModel();
+    public abstract GameModel initNewModel();
 
     public abstract void jumpToGeneration();
 
